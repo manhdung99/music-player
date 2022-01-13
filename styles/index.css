@@ -9,6 +9,13 @@
     background: linear-gradient(
       117deg,#5a4be7,#c86dd7 102%);
   }
+  .max-2-column {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
 }
 
 body{

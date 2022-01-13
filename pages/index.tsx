@@ -118,7 +118,7 @@ export default function Home() {
               </li>
               ))}
             </ul>
-          <div className="w-[200px] h-[105px] bg-[#7200a1] rounded-[8px] text-center mx-auto px-[15px] py-[8px] mb-[16px]  ">
+          <div className="w-[200px] h-[105px] bg-[#7200a1] rounded-[8px] text-center mx-auto px-[15px] py-[8px] mb-[16px]">
             <p className="text-[13px] font-bold mb-[15px]">
             Đăng nhập để khám phá playlist dành riêng cho bạn
             </p>
@@ -162,7 +162,7 @@ export default function Home() {
                 </div>
                 <div className="flex items-center">
                   <span className="text-[#7c7881] text-[12px] mr-[10px]">01:09</span>
-                <input type="range" value="0" step="1" min="0" max="100" className="w-[500px] h-[2px] bg-[#5a5561] hover:h-[4px]  " />
+                <input type="range"  step="1" min="0" max="100" className="w-[500px] h-[2px] bg-[#5a5561] hover:h-[4px]  " />
                 <span className="text-white text-[12px] ml-[10px]">04:06</span>
                 </div>
                 <div>
@@ -173,7 +173,7 @@ export default function Home() {
                   <span><FontAwesomeIcon icon={WindowRestore}  className="w-[20px] h-[20px]"/></span>
                   <div className="flex items-center">
                   <span><FontAwesomeIcon icon={VolumeUp}  className="w-[20px] h-[20px] mr-[8px]"/></span>
-                  <input type="range" value="100" step="1" min="0" max="100" className="w-[75px] h-[2px] bg-[#5a5561] hover:h-[4px]  " />
+                  <input type="range"  step="1" min="0" max="100" className="w-[75px] h-[2px] bg-[#5a5561] hover:h-[4px]  " />
                   </div>
                 </div>
           </div>
