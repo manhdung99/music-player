@@ -188,14 +188,14 @@ export default function Media() {
         </div>
         <div className="grow my-auto">
         <div className="flex items-center justify-center gap-[32px]">
-        <span onClick={()=>setIsRandom(!isRandom)} ref={randomButton} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={Random} className="h-[20px] w-[20px] " /></span>
-        <span onClick={()=>handlePrev()} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={StepBackward} className="h-[20px] w-[20px] " /></span>
-        <span ref={playButton} onClick={()=>handlePlay()} className="hover:text-[#c662ef] cursor-pointer"><FontAwesomeIcon icon={PlayCircle} className="h-[48px] w-[48px] " /></span>
-        <span ref={pauseButton} onClick={()=>handlePlay()} className="hover:text-[#c662ef] cursor-pointer hidden"><FontAwesomeIcon icon={PauseCircle} className="h-[48px] w-[48px] " /></span>
-        <span onClick={()=>handleNext()} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={StepForward} className="h-[20px] w-[20px] " /></span>
-        <span onClick={()=>setIsRepeat(!isRepeat)} ref={repeatButton} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={Redo} className="h-[20px] w-[20px] " /></span>
+        <span onClick={()=>setIsRandom(!isRandom)} ref={randomButton} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={Random} className="icon-20 " /></span>
+        <span onClick={()=>handlePrev()} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={StepBackward} className="icon-20 " /></span>
+        <span ref={playButton} onClick={()=>handlePlay()} className="hover:text-[#c662ef] cursor-pointer"><FontAwesomeIcon icon={PlayCircle} className="icon-48 " /></span>
+        <span ref={pauseButton} onClick={()=>handlePlay()} className="hover:text-[#c662ef] cursor-pointer hidden"><FontAwesomeIcon icon={PauseCircle} className="icon-48 " /></span>
+        <span onClick={()=>handleNext()} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={StepForward} className="icon-20 " /></span>
+        <span onClick={()=>setIsRepeat(!isRepeat)} ref={repeatButton} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={Redo} className="icon-20 " /></span>
         </div>
-        <div className="flex items-center mt-[4px]">
+        <div className="flex items-center">
           <span className="text-[#7c7881] text-[12px] mr-[4px] w-[24px] h-[18px]">{Math.floor(timeCurrent/60)}:{Math.floor(timeCurrent%60)}</span>
         <input ref={process} type="range" value={currentValue}
         onChange={(e)=>{handleChangeTime(e)}}  step="1" min="0" max="100" className="w-[500px] h-[2px] bg-[#5a5561] hover:h-[4px]   " />

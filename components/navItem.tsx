@@ -9,6 +9,7 @@ import {
 import { faDotCircle, faStar } from "@fortawesome/fontawesome-free-regular";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
+import {useEffect,useRef} from 'react'
 
 export default function NavItem() {
   const Music = faMusic as IconProp;
@@ -58,6 +59,10 @@ export default function NavItem() {
       name: "MV",
     },
   ];
+  const iconPlayRef = useRef(null);
+  useEffect(()=>{
+
+  },[])
   return (
     <section className="fixed bg-[#231b2e] text-white w-[240px] ">
       <div className="pt-[15px] pb-[16px] ">
