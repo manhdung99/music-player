@@ -9,7 +9,6 @@ import {
 import { faDotCircle, faStar } from "@fortawesome/fontawesome-free-regular";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
-import {useEffect,useRef} from 'react'
 
 export default function NavItem() {
   const Music = faMusic as IconProp;
@@ -59,17 +58,13 @@ export default function NavItem() {
       name: "MV",
     },
   ];
-  const iconPlayRef = useRef(null);
-  useEffect(()=>{
-
-  },[])
   return (
     <section className="fixed bg-[#231b2e] text-white w-[240px] ">
-      <div className="pt-[15px] pb-[16px] ">
+      <div className="py-[22px] ">
         <div className="px-[28px]">
           <img src="logo-dark.svg" alt="" className="w-[120px] h-[40px]"></img>
         </div>
-        <ul className=" relative py-[20px] after:absolute after:bg-[#ffffff1a] after:w-[192px] after:h-[0.5px] after:bottom-0 after:left-[24px]">
+        <ul className=" relative py-[24px] after:absolute after:bg-[#ffffff1a] after:w-[192px] after:h-[0.5px] after:bottom-0 after:left-[24px]">
           {option1.map((option, index) => (
             <li key={index} className=" cursor-pointer  ">
               <Link href="/">

@@ -196,10 +196,10 @@ export default function Media() {
         <span onClick={()=>setIsRepeat(!isRepeat)} ref={repeatButton} className="p-[5px] bg-gray-[#120c1c] cursor-pointer rounded-[50%] hover:bg-gray-800"><FontAwesomeIcon icon={Redo} className="icon-20 " /></span>
         </div>
         <div className="flex items-center">
-          <span className="text-[#7c7881] text-[12px] mr-[4px] w-[24px] h-[18px]">{Math.floor(timeCurrent/60)}:{Math.floor(timeCurrent%60)}</span>
+          <span className="text-[#7c7881] text-[12px] mr-[4px] w-[24px] h-[18px] mr-[12px]">0{Math.floor(timeCurrent/60)}:{timeCurrent%60 <10 ? '0'+ Math.floor(timeCurrent%60) : Math.floor(timeCurrent%60) }</span>
         <input ref={process} type="range" value={currentValue}
         onChange={(e)=>{handleChangeTime(e)}}  step="1" min="0" max="100" className="w-[500px] h-[2px] bg-[#5a5561] hover:h-[4px]   " />
-        <span className="text-white text-[12px] ml-[8px] w-[24px] h-[18px]">{Math.floor(songTime/60)}:{Math.floor(songTime%60)}</span>
+        <span className="text-white text-[12px] ml-[8px] w-[24px] h-[18px]">{songTime/60<10 ? '0'+Math.floor(songTime/60) : Math.floor(songTime/60) }:{songTime%60 <10 ? '0'+ Math.floor(songTime%60) : Math.floor(songTime%60) }</span>
         </div>
         <div>
         </div>

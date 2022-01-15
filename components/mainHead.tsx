@@ -16,9 +16,9 @@ export default function MainHead() {
             </div>
             </div>
             <div className='flex mr-[24px] text-white items-center'>
-            <span className='p-[10px] mx-[5px] bg-[#2f2739] rounded-[50%] hover:opacity-80'><Link href ='/'><a><FontAwesomeIcon icon={faUpload} className='w-[20px] h-[20px] ' /></a></Link></span>
-            <span className='p-[10px] mx-[5px] bg-[#2f2739] rounded-[50%] hover:opacity-80'><Link href ='/'><a><FontAwesomeIcon icon={faCog} className='w-[20px] h-[20px] ' /></a></Link></span>
-            <span className='p-[10px] mx-[5px] bg-[#ced5e3] rounded-[50%] hover:opacity-80'><Link href ='/'><a><FontAwesomeIcon icon={faUser} className='w-[20px] h-[20px] ' /></a></Link></span>
+            <span className='p-[10px] mx-[5px] bg-[#2f2739] rounded-[50%] hover:opacity-80'><Link href ='/'><a><FontAwesomeIcon icon={faUpload} className='icon-20 ' /></a></Link></span>
+            <span className='p-[10px] mx-[5px] bg-[#2f2739] rounded-[50%] hover:opacity-80'><Link href ='/'><a><FontAwesomeIcon icon={faCog} className='icon-20 ' /></a></Link></span>
+            <span className='p-[10px] mx-[5px] bg-[#ced5e3] rounded-[50%] hover:opacity-80'><Link href ='/'><a><FontAwesomeIcon icon={faUser} className='icon-20 ' /></a></Link></span>
             </div>
         </div>
     )
