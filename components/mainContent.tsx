@@ -129,7 +129,7 @@ export default function MainContent() {
             {item.list.length > 0 &&
               item.list.map((data: any, dataindex: React.Key) => (
                     <div key={dataindex} className=" group mb-[24px]  overflow-hidden z-0 relative">
-                <Link  href="/">
+                <Link  href="/playList">
                   <a>
                       <div className="rounded-[8px] w-[214px] h-[214px] overflow-hidden">
                         <img
@@ -141,13 +141,13 @@ export default function MainContent() {
                       <div className=" absolute w-[214px] h-[214px]  left-0 top-0 bg-gray-400 rounded-[8px] opacity-30 hidden group-hover:block"></div>
                       </a>
                 </Link>
-                      <div className="text-white flex gap-[40px] items-center justify-center absolute bottom-[50%] left-[50%] translate-x-[-50%] hidden group-hover:flex">
+                      <div className="text-white flex gap-[24px] items-center justify-center absolute bottom-[50%] left-[50%] translate-x-[-50%] hidden group-hover:flex">
                           <Link href="/" >
                             <a title="Thêm vào yêu thích">
                         <span className="opacity-100">
                           <FontAwesomeIcon
                             icon={Heart}
-                            className="w-[20px] h-[20px]"
+                            className="icon-20"
                           />
                         </span>
                           </a>
@@ -157,13 +157,13 @@ export default function MainContent() {
                         <span className="opacity-100">
                           <FontAwesomeIcon
                             icon={PlayCircle}
-                            className="w-[40px] h-[40px]"
+                            className="icon-40"
                           />
                         </span>
                           </a>
                           </Link>
                         <Link href="/">
-                            <a title="Khác">
+                            <a className="mb-[12px]" title="Khác">
                         <span className="text-[24px] opacity-100">
                           ...
                           </span>

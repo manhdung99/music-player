@@ -79,18 +79,22 @@ export default function Media() {
             path: '/mp3/End-of-Time-K-391-Alan-Walker-Ahrix.mp3',
             image: '/song-image/end-of-time.jpg'
     })
+    // Thay đổi thời gian bài hát
     useEffect(()=>{
         setSongTime(audioRef.current.duration)
         setTimeCurrent(audioRef.current.currentTime)
     })
+    // Khi thay đổi bài hát
     useEffect(()=>{
         setTimeout(() => {
             const data = songs[currentIndex];  
             setCurrentSong({...data});
-            audioRef.current.play();
+            if(isPlay === true){
+                audioRef.current.play();
+            }
         }, 1);
     },[currentIndex])
-
+    // Khi ấn nut play
     useEffect(()=>{   
         if(isPlay){
             playButton.current.style.display = "none"
@@ -100,7 +104,7 @@ export default function Media() {
             pauseButton.current.style.display = "none"
         }
     },[isPlay])
-
+    // Khi ấn nut random
     useEffect(()=>{
         if(isRandom){
             randomButton.current.style.color = "#7200a1"
@@ -108,6 +112,7 @@ export default function Media() {
             randomButton.current.style.color = "#fff"
         }
     },[isRandom])
+    // Khi ấn nut repeat
     useEffect(()=>{
         if(isRepeat){
             repeatButton.current.style.color = "#7200a1"
@@ -115,6 +120,7 @@ export default function Media() {
             repeatButton.current.style.color = "#fff"
         }
     },[isRepeat])
+    // Khi ấn nut play
     const handlePlay = () =>{
         if(isPlay === false){
             audioRef.current.play();      
@@ -124,6 +130,8 @@ export default function Media() {
             setIsPlay(false); 
         }
     }
+
+    // Khi ấn button next bài hát
     const handleNext = () =>{
         if(isRandom){
             handleRandom();
@@ -136,6 +144,7 @@ export default function Media() {
         }
         setIsPlay(true)
     }
+    // Khi ấn button lùi bài hát
     const handlePrev= () =>{
         if(isRandom){
             handleRandom();
@@ -148,22 +157,24 @@ export default function Media() {
         }
         setIsPlay(true)
     }
+    // Chế độ random bài hát
     const handleRandom = () =>{
         let newIndex ;
         newIndex = Math.floor(Math.random() * songs.length);
         setCurrentIndex(newIndex);
     }
+    // Khi bài hát được chạy
      const handleUpdateTime = () =>{       
         const processPercent = isNaN(audioRef.current.duration) ? 0 : (audioRef.current.currentTime/audioRef.current.duration*100);
         setCurrentValue(processPercent);
      }
-
+     //Khi tua bài hát
      const handleChangeTime = (e) =>{
         const seekTime = e.target.value * audioRef.current.duration /100;
         audioRef.current.currentTime = seekTime;
          setCurrentValue(e.target.value);    
      }
-
+     //Khi bài hát kết thúc
      const handleEnded = () =>{
         if(isRepeat){
             audioRef.current.play();
