@@ -7,88 +7,26 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { useState } from "react";
-export default function PlayList() {
+import { connect } from "react-redux";
+
+
+ const PlayList = ({songs,setCurrentIndex,setStatus}) => {
   const MainHead = dynamic(() => import("../../components/mainHead"));
   const NavItem = dynamic(() => import("../../components/navItem"));
   const Media = dynamic(() => import("../../components/media"));
-
   const Play = faPlay as IconProp;
-  const [songs,setSongs] = useState([
-        {
-            name : 'End of time',
-            singer: 'K-391,Alan Walker',
-            image: '/song-image/end-of-time.jpg',
-            album: 'US-UK',
-            time: '03:08'
-        },
-        {
-            name : 'Legends-Never-Die',
-            singer: 'Jeff Danna',
-            image: '/song-image/legend-never-die.jpg',
-            time: '04:20'
-        },
-        {
-            name : 'Please-Don-t-Go',
-            singer: 'Joel-Adams',
-            image: '/song-image/please-dont-go.jpg',
-            time: '03:24'
-        },
-        {
-            name : 'See-You-Again',
-            singer: 'Wiz-Khalifa,Charlie-Puth',
-            image: '/song-image/see-you-again.jpg',
-            time: '03:46'
-        },
-        {
-            name : 'Cưới Thôi',
-            singer: 'Massew',
-            image: '/song-image/cuoi-thoi.jpg',
-            time: '04:12'
-        },
-        {
-            name : 'Yêu Là Cưới',
-            singer: 'Phát Hồ,X2X',
-            image: '/song-image/yeu-la-cuoi.jpg',
-            time: '03:23'
-        },
-        {
-          name : 'End of time',
-          singer: 'K-391,Alan Walker',
-          image: '/song-image/end-of-time.jpg',
-          time: '03:42'
-      },
-      {
-          name : 'Legends-Never-Die',
-          singer: 'Jeff Danna',
-          image: '/song-image/legend-never-die.jpg',
-          time: '03:36'
-      },
-      {
-          name : 'Please-Don-t-Go',
-          singer: 'Joel-Adams',
-          image: '/song-image/please-dont-go.jpg',
-          time: '03:42'
-      },
-      {
-          name : 'See-You-Again',
-          singer: 'Wiz-Khalifa,Charlie-Puth',
-          image: '/song-image/see-you-again.jpg',
-          time: '03:12'
-      },
-      {
-          name : 'Cưới Thôi',
-          singer: 'Massew',
-          image: '/song-image/cuoi-thoi.jpg',
-          time: '04:18'
-      },
-      {
-          name : 'Yêu Là Cưới',
-          singer: 'Phát Hồ,X2X',
-          image: '/song-image/yeu-la-cuoi.jpg',
-          time: '04:26'
-      }
-  ])
+
+
+  const selectSong = (id) =>{
+    setCurrentIndex(id);
+    setStatus(true);
+  }
+
+  const playAllSong = () =>{
+    setCurrentIndex(0);
+    setStatus(true);
+  }
+
   return (
     <>
       <Head>
@@ -114,15 +52,15 @@ export default function PlayList() {
               </p>
               <p className="text-[12px] text-[#FFFFFF80]">Công khai</p>
 
-              <Link href="/">
-                <a className="flex ml-[50%] translate-x-[-50%] items-center justify-center uppercase bg-[#7200a1] my-[20px] py-[9px] rounded-[16px]">
-                  <span className="mr-[8px]">
+              <Link href="/playList">
+                <a className="">
+                  <span onClick={() =>playAllSong()}  className="mr-[8px] flex ml-[50%] translate-x-[-50%] items-center justify-center uppercase bg-[#7200a1] my-[20px] py-[9px] rounded-[16px]">
                     <FontAwesomeIcon
                       icon={Play}
                       className="w-[16px] h-[16px]"
                     />
-                  </span>
                   Phát tất cả
+                  </span>
                 </a>
               </Link>
             </div>
@@ -134,9 +72,7 @@ export default function PlayList() {
               </div>
               <ul className="mt-[12px] last:border-b-[0.5px] border-[#FFFFFF80]">
                 {songs.map((item, index) => (
-                  <Link key={index} href="">
-                    <a>
-                      <li className="flex  justify-between items-center p-[10px] text-[12px] text-[#FFFFFF80] border-t-[0.5px] border-[#ffffff80]">
+                      <li key={index} onClick={()=>selectSong(item.id-1)} className="flex  justify-between items-center p-[10px] text-[12px] text-[#FFFFFF80] border-t-[0.5px] border-[#ffffff80] cursor-pointer">
                         <div className="flex items-center ml-[-8px]">
                           <img
                             src={item.image}
@@ -150,8 +86,6 @@ export default function PlayList() {
                         {item?.album && <p className="ml-[-120px] hover:text-[#7200a1] hover:underline">{item?.album}</p>}
                         <p>{item.time}</p>
                       </li>
-                    </a>
-                  </Link>
                 ))}
               </ul>
             </div>
@@ -163,3 +97,19 @@ export default function PlayList() {
     </>
   );
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    songs: state.songs,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCurrentIndex: (value) => dispatch({ type: "SET_INDEX", payload: value }),
+    setCurrentSong: (value) => dispatch({ type: "SET_SONG", payload: value }),
+    setStatus: (value) => dispatch({ type: "SET_STATUS", payload: value }),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(PlayList);
