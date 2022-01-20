@@ -53,7 +53,8 @@ const initState = {
 
   },
   currentIndex: 5,
-  isPlay : false
+  isPlay : false,
+  volumn :1
 };
 
 const rootReducer = (state = initState, action) => {

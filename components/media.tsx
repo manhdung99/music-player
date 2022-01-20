@@ -20,8 +20,15 @@ import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 
-
-const Media = ({ songs, currentSong,setCurrentSong,currentIndex,setCurrentIndex,setStatus,isPlay }) => {
+const Media = ({
+  songs,
+  currentSong,
+  setCurrentSong,
+  currentIndex,
+  setCurrentIndex,
+  setStatus,
+  isPlay,
+}) => {
   const Heart = faHeart as IconProp;
   const Random = faRandom as IconProp;
   const StepBackward = faStepBackward as IconProp;
@@ -43,6 +50,7 @@ const Media = ({ songs, currentSong,setCurrentSong,currentIndex,setCurrentIndex,
   const [timeCurrent, setTimeCurrent] = useState(0);
   const [isRandom, setIsRandom] = useState(false);
   const [isRepeat, setIsRepeat] = useState(false);
+  const [currentVolume, setcurrentVolume] = useState(100);
   // Thay đổi thời gian bài hát
   useEffect(() => {
     setTimeCurrent(audioRef.current.currentTime);
@@ -57,7 +65,7 @@ const Media = ({ songs, currentSong,setCurrentSong,currentIndex,setCurrentIndex,
       }
     }, 1);
   }, [currentIndex]);
-  
+
   // Khi ấn nut play
   useEffect(() => {
     if (isPlay) {
@@ -145,6 +153,12 @@ const Media = ({ songs, currentSong,setCurrentSong,currentIndex,setCurrentIndex,
     } else {
       handleNext();
     }
+  };
+
+  const handleChangVolume = (e) => {
+    const volume = e.target.value / 100;
+    audioRef.current.volume = volume;
+    setcurrentVolume(e.target.value);
   };
   return (
     <div className="bg-[#120c1c] fixed h-[90px] w-[100%] bottom-0 flex px-[20px] text-white">
@@ -256,6 +270,8 @@ const Media = ({ songs, currentSong,setCurrentSong,currentIndex,setCurrentIndex,
           </span>
           <input
             type="range"
+            value={currentVolume}
+            onChange={(e) => handleChangVolume(e)}
             step="1"
             min="0"
             max="100"
@@ -277,8 +293,8 @@ const mapStateToProps = (state) => {
   return {
     songs: state.songs,
     currentSong: state.currentSong,
-    currentIndex : state.currentIndex,
-    isPlay:state.isPlay
+    currentIndex: state.currentIndex,
+    isPlay: state.isPlay,
   };
 };
 
