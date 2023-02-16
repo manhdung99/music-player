@@ -52,7 +52,7 @@ const initState = {
   currentSong: {
 
   },
-  currentIndex: 5,
+  currentIndex: 1,
   isPlay : false,
   volumn :1
 };

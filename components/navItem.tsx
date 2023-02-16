@@ -59,7 +59,7 @@ export default function NavItem() {
     },
   ];
   return (
-    <section className="fixed bg-[#231b2e] text-white w-[240px] ">
+    <section className="fixed bg-[#231b2e] text-white w-[240px] h-full">
       <div className="py-[22px] ">
         <div className="px-[28px]">
           <img src="logo-dark.svg" alt="" className="w-[120px] h-[40px]"></img>
@@ -80,7 +80,7 @@ export default function NavItem() {
           ))}
         </ul>
       </div>
-      <div className="max-h-[280px] overflow-y-auto ">
+      <div className="max-h-[280px] xl:max-h-max overflow-y-auto ">
         <ul className=" pb-[20px]  ">
           {option2.map((option, index) => (
             <li key={index} className=" cursor-pointer  ">
@@ -121,8 +121,8 @@ export default function NavItem() {
           </span>
         </div>
       </div>
-      <div className="border-t-[1px] border-[#ffffff1a] py-[16px]">
-        <span className=" flex font-bold text-[14px] ml-[28px]">
+      <div className="border-t border-[#ffffff1a] py-[16px] absolute w-full bottom-[90px]">
+        <span className=" flex font-bold text-[14px] ml-[28px] cursor-pointer">
           <FontAwesomeIcon icon={Plus} className="w-[20px] h-[20px] mr-[8px]" />
           Tạo playlist mới
         </span>
